@@ -301,6 +301,7 @@ public class SelectorServiceImpl implements SelectorService {
                 discoveryProcessor.removeProxySelector(DiscoveryTransfer.INSTANCE.mapToDTO(discoveryHandlerDO), proxySelectorDTO);
                 if (DiscoveryLevel.SELECTOR.getCode().equals(discoveryDO.getLevel())) {
                     discoveryProcessor.removeDiscovery(discoveryDO);
+                    discoveryProcessor.removeSelectorUpstream(proxySelectorDTO);
                     discoveryMapper.delete(discoveryDO.getId());
                 }
             }
